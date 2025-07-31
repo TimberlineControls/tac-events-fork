@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.12">
+  <POU Name="F_Logger" Id="{912884a9-fb85-095f-1eac-1ce08ab82e17}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION F_Logger : STRING;
+VAR_INPUT
+   LogSeverity : E_LogSeverity;
+   Message : T_MaxString;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF (LogSeverity < E_LogSeverity.None)
+   AND_THEN (LogSeverity >= LogConfig.LogLevel) THEN
+
+   ADSLOGSTR(LogSeverity OR ADSLOG_MSGTYPE_LOG, Message, '');
+   F_Logger := Message;
+
+   IF LogConfig.ExternalLogger <> 0 THEN
+      LogConfig.ExternalLogger.AddToLog(Message, LogSeverity);
+   END_IF
+
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="F_Logger">
+      <LineId Id="1" Count="10" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

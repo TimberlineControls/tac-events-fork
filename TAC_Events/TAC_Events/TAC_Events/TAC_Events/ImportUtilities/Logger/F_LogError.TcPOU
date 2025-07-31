@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.12">
+  <POU Name="F_LogError" Id="{72d2693c-d7be-0c99-2cc7-5909ac95e450}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION F_LogError : STRING;
+VAR_INPUT
+   Message : T_MaxString;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[F_LogError := F_Logger(ADSLOG_MSGTYPE_ERROR, Message);]]></ST>
+    </Implementation>
+    <LineIds Name="F_LogError">
+      <LineId Id="1" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

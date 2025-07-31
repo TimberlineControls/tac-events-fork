@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.12">
+  <POU Name="FB_LogInfoEdge" Id="{34ad653a-e761-067a-3728-c803efeb20b9}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_LogInfoEdge
+VAR_INPUT
+   Event : BOOL; // Event flag
+   Message : T_MaxString; // Log message
+   EventFallingEdge : BOOL := FALSE; // Defined which edge: FALSE = rising TRUE = falling, 
+END_VAR
+VAR_OUTPUT
+   Q : BOOL;
+END_VAR
+VAR
+   fbLogEdge : FB_LogOnEdge;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbLogEdge(
+   Event := Event,
+   Message := Message,
+   LogSeverity := E_LogSeverity.Info,
+   EventFallingEdge := EventFallingEdge,
+   Q => Q
+);]]></ST>
+    </Implementation>
+    <LineIds Name="FB_LogInfoEdge">
+      <LineId Id="1" Count="6" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

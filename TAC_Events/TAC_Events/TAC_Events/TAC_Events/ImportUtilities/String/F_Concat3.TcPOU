@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.12">
+  <POU Name="F_Concat3" Id="{9cf63a97-c84e-0f0d-1ab3-ca1e631333e8}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION F_Concat3 : T_MaxString
+VAR_INPUT
+   StringOne : STRING;
+   StringTwo : STRING;
+   StringThree : STRING;
+END_VAR
+VAR
+   response : T_MaxString;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[response := CONCAT(StringOne, StringTwo);
+response := CONCAT(response, StringThree);
+F_Concat3 := response;]]></ST>
+    </Implementation>
+    <LineIds Name="F_Concat3">
+      <LineId Id="1" Count="2" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

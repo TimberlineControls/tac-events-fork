@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.12">
+  <POU Name="F_LogDebug" Id="{b9fa666b-0a86-0238-0973-36dd6b8fc96b}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION F_LogDebug : STRING;
+VAR_INPUT
+   Message : T_MaxString;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[F_LogDebug :=
+   F_Logger(
+      E_LogSeverity.Debug,
+      CONCAT('DEBUG ', Message)
+   );]]></ST>
+    </Implementation>
+    <LineIds Name="F_LogDebug">
+      <LineId Id="1" Count="4" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

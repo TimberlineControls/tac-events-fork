@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.12">
+  <POU Name="F_LogInfo" Id="{b101d792-3c68-0bbf-00de-22e6617441b1}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION F_LogInfo : STRING;
+VAR_INPUT
+   Message : T_MaxString;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[F_LogInfo := F_Logger(ADSLOG_MSGTYPE_HINT, Message);]]></ST>
+    </Implementation>
+    <LineIds Name="F_LogInfo">
+      <LineId Id="1" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

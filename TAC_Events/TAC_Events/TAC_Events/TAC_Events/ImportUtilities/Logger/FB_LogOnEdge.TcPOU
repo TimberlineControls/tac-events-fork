@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.12">
+  <POU Name="FB_LogOnEdge" Id="{7a4e7629-be67-098c-3b9d-bcb39afe4228}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_LogOnEdge
+VAR_INPUT
+   Event : BOOL; // look for edge here to log.
+   Message : T_MaxString; // message
+   LogSeverity : E_LogSeverity; // severity
+   EventFallingEdge : BOOL := FALSE; // TRUE for falling edge, FALSE for rising edge.
+END_VAR
+VAR_OUTPUT
+   Q : BOOL;
+END_VAR
+VAR
+   rt : R_TRIG;
+   ft : F_TRIG;
+END_VAR
+VAR_TEMP
+   logNow : BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[rt(CLK := Event);
+ft(CLK := Event);
+
+Q := SEL(EventFallingEdge, rt.Q, ft.Q);
+
+IF Q THEN
+
+   CASE LogSeverity OF
+
+      E_LogSeverity.Info:
+         F_LogInfo(Message);
+
+      E_LogSeverity.Warning:
+         F_LogWarning(Message);
+
+      E_LogSeverity.Error:
+         F_LogError(Message);
+   ELSE
+
+      F_LogError(
+         CONCAT(
+            'Error in FB_LogOnEdge, Logseverity incorrect. Log Message for event is : ',
+            Message
+         )
+      );
+
+   END_CASE
+
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="FB_LogOnEdge">
+      <LineId Id="1" Count="28" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

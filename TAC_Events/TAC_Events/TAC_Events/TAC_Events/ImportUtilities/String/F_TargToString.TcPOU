@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.12">
+  <POU Name="F_TargToString" Id="{e8d778a0-7a58-0338-306c-865b1e86e59b}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION F_TargToString : T_MaxString
+VAR_INPUT
+   Targ : T_ARG;
+END_VAR
+VAR
+   b : POINTER TO BOOL;
+   b8 : POINTER TO BYTE;
+   w : POINTER TO WORD;
+   dw : POINTER TO DWORD;
+   usi : POINTER TO USINT;
+   si : POINTER TO SINT;
+   ui : POINTER TO UINT;
+   i : POINTER TO INT;
+   udi : POINTER TO UDINT;
+   di : POINTER TO DINT;
+   str : POINTER TO STRING;
+   re : POINTER TO REAL;
+   lr : POINTER TO LREAL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[CASE Targ.eType OF
+
+   E_ArgType.ARGTYPE_BOOL:
+      b := Targ.pData;
+      F_TargToString := TO_STRING(b^);
+
+   E_ArgType.ARGTYPE_BYTE:
+      b8 := Targ.pData;
+      F_TargToString := TO_STRING(b8^);
+
+   E_ArgType.ARGTYPE_WORD:
+      w := Targ.pData;
+      F_TargToString := TO_STRING(w^);
+
+   E_ArgType.ARGTYPE_DWORD:
+      dw := Targ.pData;
+      F_TargToString := TO_STRING(dw^);
+
+   E_ArgType.ARGTYPE_USINT:
+      usi := Targ.pData;
+      F_TargToString := TO_STRING(usi^);
+
+   E_ArgType.ARGTYPE_SINT:
+      si := Targ.pData;
+      F_TargToString := TO_STRING(si^);
+
+   E_ArgType.ARGTYPE_UINT:
+      ui := Targ.pData;
+      F_TargToString := TO_STRING(ui^);
+
+   E_ArgType.ARGTYPE_INT:
+      i := Targ.pData;
+      F_TargToString := TO_STRING(i^);
+
+   E_ArgType.ARGTYPE_UDINT:
+      udi := Targ.pData;
+      F_TargToString := TO_STRING(udi^);
+
+   E_ArgType.ARGTYPE_DINT:
+      di := Targ.pData;
+      F_TargToString := TO_STRING(di^);
+
+   E_ArgType.ARGTYPE_STRING:
+      str := Targ.pData;
+      F_TargToString := TO_STRING(str^);
+
+   E_ArgType.ARGTYPE_REAL:
+      re := Targ.pData;
+      F_TargToString := TO_STRING(re^);
+
+   E_ArgType.ARGTYPE_LREAL:
+      lr := Targ.pData;
+      F_TargToString := TO_STRING(lr^);
+
+ELSE
+   F_LogWarning(
+      CONCAT(
+         'Unsupported type in Targ for string conversion: ',
+         TO_STRING(Targ.eType)
+      )
+   );
+END_CASE]]></ST>
+    </Implementation>
+    <LineIds Name="F_TargToString">
+      <LineId Id="1" Count="61" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

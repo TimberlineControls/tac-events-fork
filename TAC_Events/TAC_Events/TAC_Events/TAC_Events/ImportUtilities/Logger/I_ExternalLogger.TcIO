@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.12">
+  <Itf Name="I_ExternalLogger" Id="{d75d9843-761c-0d34-140b-aa07a979d486}">
+    <Declaration><![CDATA[INTERFACE I_ExternalLogger
+]]></Declaration>
+    <Method Name="AddToLog" Id="{757471e8-b729-0d32-3eb4-5b32f786d76d}">
+      <Declaration><![CDATA[METHOD AddToLog
+VAR_IN_OUT
+   Message : T_MaxString;
+END_VAR
+VAR_INPUT
+   LogSeverity : E_LogSeverity;
+END_VAR
+]]></Declaration>
+    </Method>
+  </Itf>
+</TcPlcObject>

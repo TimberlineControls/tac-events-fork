@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.12">
+  <DUT Name="E_LogSeverity" Id="{1a6e0ff8-fe08-0283-2e72-936159c32ee6}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+TYPE
+   E_LogSeverity :
+   (
+      Debug := 0,
+      Info := ADSLOG_MSGTYPE_HINT,
+      Warning := ADSLOG_MSGTYPE_WARN,
+      Error := ADSLOG_MSGTYPE_ERROR,
+      None := 1000
+   ) DWORD;
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

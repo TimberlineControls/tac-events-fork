@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.12">
+  <POU Name="F_Concat7_Large" Id="{41da812b-426d-0301-1b8c-2fdfa024b790}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION F_Concat7_Large : LongString
+VAR_IN_OUT CONSTANT
+   sOne : LongString;
+   sTwo : LongString;
+   sThree : LongString;
+   sFour : LongString;
+   sFive : LongString;
+   sSix : LongString;
+   sSeven : LongString;
+END_VAR
+VAR
+   str : LongString;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[str := F_Concat6_Large(
+   sTwo,
+   sThree,
+   sFour,
+   sFive,
+   sSix,
+   sSeven
+);
+
+F_Concat7_Large :=
+   F_ConcatLarge(
+      sOne,
+      str
+   );]]></ST>
+    </Implementation>
+    <LineIds Name="F_Concat7_Large">
+      <LineId Id="1" Count="13" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
