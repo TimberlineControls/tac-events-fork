@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4026.13">
   <POU Name="T_Logger" Id="{6cd45fe3-2bfd-0888-0829-0a4ad33070a2}" SpecialFunc="None">
     <Declaration><![CDATA[// Logger for allowing events of any level to be raised in addition to being able to set/clear a local severity for specific logs.
 FUNCTION_BLOCK PUBLIC T_Logger EXTENDS T_InstanceNameBase IMPLEMENTS I_EventLogger, I_Logger, I_EventSeverityHandler
@@ -32,7 +32,7 @@ END_VAR
         <ST><![CDATA[// Ensure Intecre_Utilities log level is set to Debug so all logs are processed. 
 // Log filtering is handled via Events.GLOBAL_LOG_SEVERITY and I_Logger -> I_EventSeverityHandler for setting local severity.
 // See events tester.
-Intecre_Utilities.LogConfig.LogLevel := E_LogSeverity.Debug; 
+//Intecre_Utilities.LogConfig.LogLevel := E_LogSeverity.Debug; 
 
 // Set the minimum global logging severity to filter all events.
 SetGlobalSeverity(TcEventSeverity.Verbose);]]></ST>
