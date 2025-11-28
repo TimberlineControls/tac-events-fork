@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="Example" Id="{5ef344c7-dc4e-0de2-38c0-d68efdc3c294}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Example
+VAR
+	init : BOOL := TRUE;
+	logMsg : STRING;
+	logger : T_Logger;
+	
+	
+	triggerInfo : BOOL;
+	triggerWarning : BOOL;
+	triggerError : BOOL;
+	triggerCritical : BOOL;
+	
+	
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF init THEN
+	TAC_Events.LogConfig.LogLevel := E_LogSeverity.Debug;
+	init := FALSE;
+END_IF
+
+IF triggerInfo THEN
+    logMsg := 'Test Info of Logger';
+    logger.LogInfo(logMsg);
+    triggerInfo := FALSE;
+END_IF
+
+IF triggerWarning THEN
+    logMsg := 'Test Warning of Logger';
+    logger.LogWarning(logMsg);
+    triggerWarning := FALSE;
+END_IF
+
+IF triggerError THEN
+    logMsg := 'Test Error of Logger';
+    logger.LogError(logMsg);
+    triggerError := FALSE;
+END_IF
+
+IF triggerCritical THEN
+    logMsg := 'Test Critical of Logger';
+    logger.LogCritical(logMsg);
+    triggerCritical := FALSE;
+END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

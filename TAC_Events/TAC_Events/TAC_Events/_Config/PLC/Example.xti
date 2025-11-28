@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.19" ClassName="CNestedPlcProjDef">
+	<Project GUID="{D9689A57-87F3-4B24-866C-4D4744C3BF84}" Name="Example" PrjFilePath="..\..\Example\Example.plcproj" TmcFilePath="..\..\Example\Example.tmc" ReloadTmc="true" AmsPort="852" FileArchiveSettings="#x000e" SymbolicMapping="true">
+		<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{258B7385-09F0-1D29-BE4D-486FF971982C}">
+			<Name>Example Instance</Name>
+			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
+			<Contexts>
+				<Context>
+					<Id>0</Id>
+					<Name>PlcTask</Name>
+					<ManualConfig>
+						<OTCID>#x02010040</OTCID>
+					</ManualConfig>
+					<Priority>21</Priority>
+					<CycleTime>10000000</CycleTime>
+				</Context>
+			</Contexts>
+			<TaskPouOids>
+				<TaskPouOid Prio="21" OTCID="#x08502041"/>
+			</TaskPouOids>
+		</Instance>
+	</Project>
+</TcSmItem>

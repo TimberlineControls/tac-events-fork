@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.19" ClassName="CNestedPlcProjDef">
 	<Project GUID="{14041C4F-B9FE-48FA-8E51-8F4DB86C5B09}" Name="TAC_Events" PrjFilePath="..\..\TAC_Events\TAC_Events.plcproj" TmcFilePath="..\..\TAC_Events\TAC_Events.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{B64FDF99-733D-0965-EF38-1C7A907FE568}" TmcPath="Intecre_Events\Intecre_Events.tmc">
+		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcHash="{3A83BC98-5EB9-D70A-48FF-ADC63B84962D}" TmcPath="TAC_Events\TAC_Events.tmc">
 			<Name>TAC_Events Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 		</Instance>
